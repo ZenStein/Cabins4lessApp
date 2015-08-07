@@ -1,0 +1,71 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul side-navigation class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+
+                <div class="dropdown profile-element" dropdown>
+                    <img alt="image" class="img-circle" src="img/profile_small.jpg"/>
+                    <a class="dropdown-toggle" dropdown-toggle href>
+                            <span class="clear">
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold">{{ currentUser.first_name }} {{ currentUser.last_name }}</strong>
+                             </span>
+                                <span class="text-muted text-xs block">{{ currentUser.department}} <b class="caret"></b></span>
+                            </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a ui-sref="profile">Profile</a></li>
+                        <li><a ui-sref="contacts">Contacts</a></li>
+                        <li><a ui-sref="inbox">Mailbox</a></li>
+                        <li class="divider"></li>
+                        <li><a href="../login.html">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    IN+
+                </div>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="index.dashboard"><i class="fa fa-dashboard"></i> <span class="nav-label">DashBoard</span> </a>
+            </li>
+            <li ng-class="{active: $state.includes('employee')}">
+                <a href=""><i class="fa fa-user"></i> <span class="nav-label">Employees</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" ng-class="{in: $state.includes('employee')}">
+                    <li ui-sref-active="active"><a ui-sref="employee.create_new">Create New</a></li>
+                    <li ui-sref-active="active"><a ui-sref="employee.view_all">View all</a></li>
+                </ul>
+            </li>
+            <li ng-class="{active: $state.includes('schedule')}">
+                <a href=""><i class="fa fa-user"></i> <span class="nav-label">Schedule</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" ng-class="{in: $state.includes('schedule')}">
+                    <li ui-sref-active="active"><a ui-sref="schedule.housekeepers">Housekeepers</a></li>
+                    <li ui-sref-active="active"><a ui-sref="schedule.office">Office</a></li>
+                    <li ui-sref-active="active"><a ui-sref="schedule.maintenance">Maintenance</a></li>
+
+                </ul>
+            </li>
+            <li ng-class="{active: $state.includes('assignment')}">
+                <a href=""><i class="fa fa-user"></i> <span class="nav-label">Assignments</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" ng-class="{in: $state.includes('assignment')}">
+                    <li ui-sref-active="active"><a ui-sref="assignment.office">Office</a></li>
+                    <li ui-sref-active="active"><a ui-sref="assignment.daily_housekeeping">Daily Housekeeping</a></li>
+                </ul>
+            </li>
+            <li ng-class="{active: $state.includes('clockin')}">
+                <a href=""><i class="fa fa-user"></i> <span class="nav-label">ClockIn Services</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" ng-class="{in: $state.includes('clockin')}">
+                    <li ui-sref-active="active"><a ui-sref="clockin.hours_tracking">Hours Tracking</a></li>
+
+                </ul>
+            </li>
+            <li ng-class="{active: $state.includes('phone')}">
+                <a href=""><i class="fa fa-user"></i> <span class="nav-label">Phone</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" ng-class="{in: $state.includes('phone')}">
+                    <li ui-sref-active="active"><a ui-sref="phone.make_call">Make Call</a></li>
+
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</nav>

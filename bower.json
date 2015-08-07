@@ -1,0 +1,15 @@
+{
+  "name": "Cabins4LessApp.v1.2",
+  "version": "1.2",
+  "authors": [
+    "ZenStein <shaneenterprises@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

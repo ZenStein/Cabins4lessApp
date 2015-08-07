@@ -1,0 +1,163 @@
+
+
+
+<div style="position: relative;float: left;width: 600px; height: 600px; margin-top:100px; padding: 20px;background-color: lavender">
+    <p ng-repeat="(key, value) in i ">{{ key }} :: {{ value }}</p>
+</div>
+<div ui-view="" class="ng-scope"><div class="row wrapper border-bottom white-bg page-heading ng-scope">
+    <div class="col-lg-10">
+        <h2>Basic Form</h2>
+        <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a>Forms</a></li>
+            <li class="active"><strong>Basic Forms</strong></li>
+        </ol>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight ng-scope">
+    <div claxss="row">
+        <div class="col-lg-10">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>New Employee <small>create profile..</small></h5>
+                    <div ibox-tools="" class="ng-scope">
+                        <div class="ibox-tools dropdown" dropdown="">
+                            <a ng-click="showhide()"> <i class="fa fa-chevron-up"></i></a>
+                            <a class="dropdown-toggle" href="" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="">Config option 1</a>
+                                </li>
+                                <li><a href="">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a ng-click="closebox()"><i class="fa fa-times"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+<div class="ibox-content">
+
+
+    <form class="form-horizontal m-t-md" ng-submit="createNewEmployee(i)">
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">First Name</label>
+    <div class="col-sm-8"><input type="text" placeholder="First Name" class="form-control" ng-model="i.first_name"></div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Last Name</label>
+    <div class="col-sm-8"><input type="text" placeholder="Last Name" class="form-control" ng-model="i.last_name"></div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-8"><input type="email" placeholder="Email" class="form-control ng-pristine ng-untouched ng-valid" ng-model="i.email"></div>
+</div>
+
+
+<hr style="height: 20px;">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Address</label>
+         <div class="col-sm-8">
+             <input type="text" ng-model="i.address.street" placeholder="Address" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
+         </div>
+        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+        <div ng-show="noResults">
+
+            <i class="glyphicon glyphicon-remove"></i> No Results Found
+        </div>
+    </div>
+        <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-2">
+            <input type="text" placeholder="City" class="form-control ng-pristine ng-untouched ng-valid" ng-model="i.address.city">
+        </div>
+            <div class="col-sm-4">
+                <input type="text" placeholder="State" class="form-control ng-pristine ng-untouched ng-valid" ng-model="i.address.state">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-2">
+                <input type="text" placeholder="Country" class="form-control ng-pristine ng-untouched ng-valid" ng-model="i.address.country">
+            </div>
+            <div class="col-sm-4">
+                <input type="text" placeholder="Zip" class="form-control ng-pristine ng-untouched ng-valid" ng-model="i.address.zip">
+            </div>
+        </div>
+
+<hr style="height: 20px;">
+
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">Job Title</label>
+    <div class="col-sm-8"><input type="text" placeholder="Job Title" class="form-control" ng-model="i.job_title"></div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Department</label>
+<div class=" col-sm-4 ">
+    <select class="form-control" multiple="" ng-model="i.department">
+        <option value="HouseKeeping">HouseKeeping</option>
+        <option value="Office">Office</option>
+        <option value="Maintenance">Maintenance</option>
+        <option value="Seasonal Temp.">Seasonal Temp.</option>
+    </select>
+</div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">BirthDay</label>
+    <div class="col-sm-8">
+        <input type="text" class="form-control ng-pristine ng-untouched ng-valid" data-mask="99/99/9999" placeholder=""  ng-model="i.birthday">
+        <span class="help-block">dd/mm/yyyy</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Start Date</label>
+    <div class="col-sm-8">
+        <input type="text" class="form-control ng-pristine ng-untouched ng-valid" data-mask="99/99/9999" placeholder="" ng-model="i.start_date">
+        <span class="help-block">dd/mm/yyyy</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Hourly Rate</label>
+    <div class="col-sm-8">
+        <input type="text" class="form-control ng-pristine ng-untouched ng-valid" data-mask="$99.99" placeholder="" ng-model="i.hourly_rate">
+        <span class="help-block">$ 99.99</span>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">SSN</label>
+    <div class="col-sm-8">
+        <input type="text" class="form-control ng-pristine ng-valid ng-touched" data-mask="99-9999999" placeholder="SSN" ng-model="i.SSN">
+        <span class="help-block">99-9999999</span>
+  </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">Phone</label>
+    <div class="col-sm-8">
+        <input type="text" class="form-control ng-pristine ng-untouched ng-valid" data-mask="(999) 999-9999" placeholder="" ng-model="i.phone">
+        <span class="help-block"><span id="gc-number-0" class="gc-cs-link" title="Call with Google Voice">(999) 999-9999</span></span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Alternate Phone</label>
+    <div class="col-sm-8">
+        <input type="text" class="form-control ng-pristine ng-untouched ng-valid" data-mask="(999) 999-9999" placeholder="" ng-model="i.phone2">
+        <span class="help-block"><span id="gc-number-1" class="gc-cs-link" title="Call with Google Voice">(999) 999-9999</span></span>
+    </div>
+</div>
+       <div class="col-sm-2"> </div><button type="submit" class="btn-default btn-lg ">New Employee</button>
+
+    </form>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+
