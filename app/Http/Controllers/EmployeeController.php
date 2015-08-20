@@ -13,8 +13,8 @@ class EmployeeController extends Controller
 {
 
 	public function createNewEmployee(Request $request, User $user)
-	{
-		//$input = $request->all();
+	{	$input = $request->all();
+	return response()->json($input);
 		$newUser = $user::create([
 		 'first_name'  => $request['first_name'],  'last_name' => $request['last_name'],
 		  'job_title'   => $request['job_title'],   'department' => $request['department'],

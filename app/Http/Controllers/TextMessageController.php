@@ -2,39 +2,25 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\HousekeepingAssignment;
-use Psy\Util\Json;
-use App\Http\Controllers\logHousekeepingAssignments;
-use Input;
+use \Services_Twilio;
 
-class AssignmentsController extends Controller
+class TextMessageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function housekeepingAssignments(HousekeepingAssignment $assign)
+
+	protected $sid;
+	protected $primaryToken;
+	protected $secondaryToken;
+
+
+	    public function __construct()
     {
-		$assignments = $assign->all();
-	    return response()->json($assignments);
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function saveHousekeepingAssignments()
-    {
-	   $all = Input::all();
-	    $logger = new logHousekeepingAssignments($all);
-	    $test = $logger->storeAll();
-	    return response()->json(['happy'=>$test]);
+       $this->sid = 'AC2af87bd237bb23944bc873bb62c075a1';
+	    $this->primaryToken = '1233cce6cec6474cdfc156c315980ddf';
+	    $this->secondaryToken = '6924fc00d0aa0fd851151c5b00dff4a8';
     }
     /**
      * Display a listing of the resource.
@@ -44,6 +30,29 @@ class AssignmentsController extends Controller
     public function index()
     {
         //
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function text(Request $request)
+    {
+//$r = get_class_methods($request);
+	    return response()->json(['$r' => $request->all()]);
+//		$client = new Services_Twilio($this->sid, $this->primaryToken);
+//
+//		$message = $client->
+//					   account->
+//					    messages->
+//					     create ( array (
+//				         "From" => "415-319-6596",
+//					       "To"   => "909-281-5750",
+//				           "Body" => "Test message!"  ) ) ;
+//	    if($message->error_message == null){
+//		    //message sent successfully
+//		   return response()->json(['message'=>$message->body]);
+//	    }
     }
 
     /**

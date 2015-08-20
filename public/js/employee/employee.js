@@ -61,17 +61,17 @@ $scope.data = {'data':'employeesViewController view'};
 		     state:'default',
 		      Country:'default'
 		},
-		first_name:'default',
-		 last_name:'default',
-		  job_title:'default',
-		   department:'default',
+		first_name:'chris',
+		 last_name:'shahin',
+		  job_title:'boss',
+		   department:'housekeeping',
 		    hourly_rate:'35.00',
 		     start_date:'11/01/2015',
 		      birthday:'11/01/2015',
 		       SSN:'333333333',
-			     email:'default@d.com',
-					phone:'default',
-					 phone2:'default'
+			     email:'shaneenterprises@gmail.com',
+					phone:'9092801180',
+					 phone2:'9092801180'
 
 	};
 	$scope.getLocation = function(val) {console.log ('val');console.log ( val ); //marker
@@ -106,6 +106,7 @@ $scope.addresses = item;//.formatted_address;
 	};
 
 		$scope.createNewEmployee = function (i){
+			console.log ('employee create new object');console.log ( i ); //marker
 			userService.createNewEmployee(i).then(function(sess){
 				console.log ('sess');console.log ( sess ); //marker
 			}, function(err){

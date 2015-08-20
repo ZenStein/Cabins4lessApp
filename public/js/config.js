@@ -79,7 +79,30 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
 				    {
 					    name:'employee',
 					    files: [ 'js/employee/employee.js']
-				    }
+				    },
+				    {
+					    files: ['js/plugins/jasny/jasny-bootstrap.min.js']
+				    },
+				    {
+					    serie: true,
+					    files: ['js/plugins/moment/moment.min.js', 'js/plugins/daterangepicker/daterangepicker.js', 'css/plugins/daterangepicker/daterangepicker-bs3.css']
+				    },
+				    {
+					    name : 'daterangepicker',
+					    files: ['js/plugins/daterangepicker/angular-daterangepicker.js']
+				    },
+				    {
+                   insertBefore: '#loadBefore',
+                   name: 'localytics.directives',
+                   files: ['css/plugins/chosen/chosen.css','js/plugins/chosen/chosen.jquery.js','js/plugins/chosen/chosen.js']
+               },
+               {
+                   name: 'ui.switchery',
+                   files: ['css/plugins/switchery/switchery.css','js/plugins/switchery/switchery.js','js/plugins/switchery/ng-switchery.js']
+               },
+               {
+                   files: ['css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css']
+               }
 			    ]);
 		    }
 	    }
@@ -99,29 +122,6 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                         {
                             name: 'datePicker',
                             files: ['css/plugins/datapicker/angular-datapicker.css','js/plugins/datapicker/angular-datepicker.js']
-                        },
-                        {
-                            files: ['js/plugins/jasny/jasny-bootstrap.min.js']
-                        },
-                        {
-                            serie: true,
-                            files: ['js/plugins/moment/moment.min.js', 'js/plugins/daterangepicker/daterangepicker.js', 'css/plugins/daterangepicker/daterangepicker-bs3.css']
-                        },
-                        {
-                            name: 'daterangepicker',
-                            files: ['js/plugins/daterangepicker/angular-daterangepicker.js']
-                        },
-                        {
-                            insertBefore: '#loadBefore',
-                            name: 'localytics.directives',
-                            files: ['css/plugins/chosen/chosen.css','js/plugins/chosen/chosen.jquery.js','js/plugins/chosen/chosen.js']
-                        },
-                        {
-                            name: 'ui.switchery',
-                            files: ['css/plugins/switchery/switchery.css','js/plugins/switchery/switchery.js','js/plugins/switchery/ng-switchery.js']
-                        },
-                        {
-                            files: ['css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css']
                         }
 			    ]);
 		    }
@@ -173,9 +173,14 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
 				      return $ocLazyLoad.load([
 					      {
 						      insertBefore: '#loadBefore',
+						      files:['js/assignment/assignment.css']
+					      },
+					      {
+						     // insertBefore: '#loadBefore',
 						      files:['js/plugins/angular-ui-grid/ui-grid.min.css']
 					      },
 					      {
+						      serie:true,
 						      name:'assignment',
 						      files: ['js/assignment/assignment.js','js/assignment/controllers.js']
 					      }
@@ -220,7 +225,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
 		    templateUrl: "views/clockin/hours_tracking.html",
 	       controller :'clockin.hours_trackingController',
 	       data       : { pageTitle: 'Hours Tracking' }
-    })//************************
+    })
     .state('phone', {
             abstract: true,
             url: "/phone",
@@ -229,14 +234,60 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
 			      loadPlugin: function ($ocLazyLoad) {
 				      return $ocLazyLoad.load([
 					      {
-						      insertBefore: '#loadBefore',
-						      files        : ['http://static0.twilio.com/bundles/quickstart/client.css']
-					      },
-					      {
 						      serie : true,
 						      name : 'phone',
 						      files : ['js/phone/phone.js','js/phone/controllers.js','http://static.twilio.com/libs/twiliojs/1.2/twilio.min.js']
-					      }
+
+					      },
+                         {
+                            name: 'ui.knob',
+                            files: ['js/plugins/jsKnob/jquery.knob.js','js/plugins/jsKnob/angular-knob.js']
+                        },
+                        {
+                            files: ['css/plugins/ionRangeSlider/ion.rangeSlider.css','css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css','js/plugins/ionRangeSlider/ion.rangeSlider.min.js']
+                        },
+                        {
+                            insertBefore: '#loadBefore',
+                            name: 'localytics.directives',
+                            files: ['css/plugins/chosen/chosen.css','js/plugins/chosen/chosen.jquery.js','js/plugins/chosen/chosen.js']
+                        },
+                        {
+                            name: 'nouislider',
+                            files: ['css/plugins/nouslider/jquery.nouislider.css','js/plugins/nouslider/jquery.nouislider.min.js','js/plugins/nouslider/angular-nouislider.js']
+                        },
+                        {
+                            name: 'datePicker',
+                            files: ['css/plugins/datapicker/angular-datapicker.css','js/plugins/datapicker/angular-datepicker.js']
+                        },
+                        {
+                            files: ['js/plugins/jasny/jasny-bootstrap.min.js']
+                        },
+                        {
+                            files: ['css/plugins/clockpicker/clockpicker.css', 'js/plugins/clockpicker/clockpicker.js']
+                        },
+                        {
+                            name: 'ui.switchery',
+                            files: ['css/plugins/switchery/switchery.css','js/plugins/switchery/switchery.js','js/plugins/switchery/ng-switchery.js']
+                        },
+                        {
+                            name: 'colorpicker.module',
+                            files: ['css/plugins/colorpicker/colorpicker.css','js/plugins/colorpicker/bootstrap-colorpicker-module.js']
+                        },
+                        {
+                            name: 'ngImgCrop',
+                            files: ['js/plugins/ngImgCrop/ng-img-crop.js','css/plugins/ngImgCrop/ng-img-crop.css']
+                        },
+                        {
+                            serie: true,
+                            files: ['js/plugins/moment/moment.min.js', 'js/plugins/daterangepicker/daterangepicker.js', 'css/plugins/daterangepicker/daterangepicker-bs3.css']
+                        },
+                        {
+                            name: 'daterangepicker',
+                            files: ['js/plugins/daterangepicker/angular-daterangepicker.js']
+                        },
+                        {
+                            files: ['css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css']
+                        }
 				      ]);
 			      }
 		      }
@@ -247,8 +298,19 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
 	       controller :'phone.make_callController',
 	       data       : { pageTitle: 'Make A Call' }
     })
+    .state('phone.tasks',{
+          url        : "/tasks",
+		    templateUrl: "views/phone/tasks.html",
+	       controller :'phone.tasksController',
+	       data       : { pageTitle: 'Tasks' },
+		      resolve: {
+			      loadPlugin: function ($ocLazyLoad) {
+				      return $ocLazyLoad.load([
 
-
+				      ]);
+			      }
+		      }
+		      })
 
 }
 angular

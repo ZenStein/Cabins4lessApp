@@ -9,7 +9,8 @@
         'ui.bootstrap',                 // Ui Bootstrap
         'pascalprecht.translate',       // Angular Translate
         'ngIdle',                        // Idle timer
-    'ui.grid'
+    'ui.grid',
+    'ngSanitize'
     ])
 })();
 

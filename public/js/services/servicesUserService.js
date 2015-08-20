@@ -81,8 +81,10 @@
 
 				.then(function(success){
 					console.log ('success');console.log ( success ); //marker
+					return success;
 				},function(err){
 					console.log ('err');console.log ( err ); //marker
+					return err;
 				})
 			};
 			this.alertTest = function () {

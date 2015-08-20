@@ -1,15 +1,5 @@
 
 
-<style>
-
-    .assign_housekeep{
-        height:350px;
-        width:70%;
-        float:right;
-        display: inline;
-    }
-</style>
-
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
         <h2>ng Grid</h2>
@@ -30,35 +20,46 @@
     </div>
 </div>
 
-<div class="wrapper wrapper-content animated fadeInRight" ng-controller="ngGridCtrl">
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
 <div class="row">
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>Assign Housekeepers</h5>
+                <h5>Review Assignments</h5>
                 <div ibox-tools></div>
             </div>
-            <div class="ibox-content">
+            <div class="ibox-content" style="height: 450px;">
 
-
-    <div class="btn-group-vertical" role="group" aria-label="..." class="vert_hk_buttons">
+<div id="housekeeper_assignments_wrap">
+<div class="layout_names">
+        <div class="btn-group-vertical" role="group" aria-label="..." class="vert_hk_buttons">
         <button ng-repeat="hk in gridOptions2.housekeepers" type="button" class="btn btn-default btn-lg" ng-click="assign(hk)" ng-disabled="thereIsNoSelection()">{{ hk.first_name }}</button>
     </div>
+</div>
+<div class="layout_grid1">
     <div ui-grid="gridOptions1" class="assign_housekeep" ui-grid-selection ui-grid-grouping ui-grid-resize-columns ui-grid-move-columns></div>
-     <div class="well" ng-show="assignmentCount()">Total Cabins needing Assignment:<br>
-         {{ assignmentCount() }}<br>
-         List:<br>
-         <span ng-repeat="cabin in gridOptions1.data" ng-hide="isAssigned(cabin.assigned_to)">{{ cabin.cabin_number }}, </span>
-     </div>
-     <div class="well cs_well_success" ng-hide="assignmentCount()">
-        All cabins have been assigned!!
-     </div>
-            </div>
-        </div>
-    </div>
+</div>
+<div class="layout_status">
+    <div>
+<span><h2>{{ assignmentCount() }} <small> /{{ gridOptions1.data.length }}</small></h2></span><br>
+
+</div>
+    <div class="progress progress-small">
+                                <div class="progress-bar percentage_25" ng-style="assignedPercentage()"></div>
+                            </div>
+
+
+</div>
+
+      </div>
+  </div>
+</div>
 </div>
 
 </div>
+
 
 <div class="wrapper wrapper-content animated fadeInRight">
 
@@ -72,15 +73,20 @@
             <div class="ibox-content">
 
 
-      <div ui-grid="gridOptions2" class="myGrid" ui-grid-selection ui-grid-grouping ui-grid-resize-columns ui-grid-move-columns></div>
-      <button type="button" class="btn btn-default btn-large btn-block hover_red" ng-click="unAssign()">Remove Selected Assignments</button>
+<div ui-grid="gridOptions2" class="myGrid" ui-grid-selection ui-grid-grouping ui-grid-resize-columns ui-grid-move-columns></div>
+<button type="button" class="btn btn-default btn-large btn-block hover_red" ng-click="unAssign()">Remove Selected Assignments</button>
+<button type="button" class="btn btn-default btn-large btn-block hover_red" ng-click="save()">Save Current Assignments!!</button>
 
 
-            </div>
-        </div>
-    </div>
+      </div>
+  </div>
+</div>
 </div>
 
 </div>
+
+
+
+
 
 

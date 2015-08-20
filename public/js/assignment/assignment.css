@@ -1,0 +1,29 @@
+
+
+
+
+.assign_housekeep {
+    height: 350px;
+    width: 100%;
+    float: right;
+    display: inline;
+}
+.layout_grid1 {
+    width: 700px;
+}
+#housekeeper_assignments_wrap > div{
+    position: relative;
+    float: left;
+    display: inline;
+    padding: 15px;
+    height: 420px;
+
+}
+#housekeeper_assignments_wrap > div:first-child{
+        width: 150px;
+}
+#housekeeper_assignments_wrap > div:last-child{
+    width: 250px;
+    text-align: center;
+}
+

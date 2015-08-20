@@ -57,6 +57,8 @@
 <script src="js/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
 <script src="js/angular-translate/angular-translate.min.js"></script>
 <script src="js/ui-router/angular-ui-router.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-sanitize.js"></script>
+
 <script src="js/bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
 <script src="js/plugins/angular-idle/angular-idle.js"></script>
 <script src="js/_underscore.js"></script>

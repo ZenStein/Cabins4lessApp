@@ -1,7 +1,171 @@
-  <body>
-    <button class="call" onclick="call();">
-      Call
-    </button>
+<style>
+@import url(http://fonts.googleapis.com/css?family=Lato:300);
+/*@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);*/
+/*body
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato' , sans-serif;
+    color: #333;
+    background-size: 100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+    background-color: #475264;
+}
+p
+{
+    margin: 0;
+    padding: 0 0 10px 0;
+    line-height: 20px;
+}*/
+.span4
+{
+    width: 80px;
+    float: left;
+    margin: 0 8px 10px 8px;
+}
 
-    <div id="log">Loading pigeons...</div>
-  </body>
+.phone
+{
+    width: 370px;
+    margin-top: 15px;
+    background: #fff;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.tel
+{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: 1px solid #9e9e9e;
+    border-radius: 0px;
+}
+.num-pad
+{
+    padding-left: 15px;
+}
+
+
+.num
+{
+    border: 1px solid #9e9e9e;
+    -webkit-border-radius: 999px;
+    border-radius: 999px;
+    -moz-border-radius: 999px;
+    height: 80px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+.num:hover
+{
+    background-color: #9e9e9e;
+    color: #fff;
+    transition-property: background-color .2s linear 0s;
+    -moz-transition: background-color .2s linear 0s;
+    -webkit-transition: background-color .2s linear 0s;
+    -o-transition: background-color .2s linear 0s;
+}
+.txt
+{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 15px;
+    font-family: 'Lato', arial, sans-serif;
+    line-height: 30px;
+    color: #333;
+}
+.small
+{
+    font-size: 15px;
+}
+
+/*.btn
+{
+    font-weight: bold;
+    -webkit-transition: .1s ease-in background-color;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 1px;
+}*/
+/*.btn:hover
+{
+    transition-property: background-color .2s linear 0s;
+    -moz-transition: background-color .2s linear 0s;
+    -webkit-transition: background-color .2s linear 0s;
+    -o-transition: background-color .2s linear 0s;
+}
+.spanicons
+{
+    width: 72px;
+    float: left;
+    text-align: center;
+    margin-top: 40px;
+    color: #9e9e9e;
+    font-size: 30px;
+    cursor: pointer;
+}
+.spanicons:hover
+{
+    color: #3498db;
+    transition-property: color .2s linear 0s;
+    -moz-transition: color .2s linear 0s;
+    -webkit-transition: color .2s linear 0s;
+    -o-transition: color .2s linear 0s;
+}
+.active
+{
+    color: #3498db;
+}*/
+
+.call_hangup_offset{
+    margin-left: 102px;
+}
+.call_color{
+    color: #1AB394;
+}
+.hangup_color{
+    color: red;
+}
+
+</style>
+    <div class="row">
+        <div class=" col-xs-12 col-sm-8 col-md-6 col-lg-4 col-sm-offset-1 col-md-offset-2 col-lg-offset-3 phone" style="height: 700px;">
+            <div class="row1">
+                <div class="col-md-12">
+                 <div style="background-color: #1ab394; border-radius: 10px; width: 100%; height: 120px; padding-top: 30px;  text-align: center; vertical-align: middle"><h1>{{ actions.callNumber }}</h1></div>
+                    <input type="tel" name="name" id="telNumber" class="form-control tel" ng-pattern="/\d+{10}/" ng-model-options="{ getterSetter : true }" ng-model="actions.callNumber"/>
+                    <div class="num-pad">
+                    <div class="span4" ng-repeat="btn in dialPadBtns" ng-click="actions.pushNumber(actions.callNumber+btn.number)">
+                        <div class="num">
+                            <div class="txt">
+                                {{ btn.number }}
+                                <span class="small">
+                                    <p>{{ btn.text }}</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="span4 call_hangup_offset" ng-show="callConnected" ng-click="hangUp()">
+                        <div class="num">
+                            <div class="txt hangup_color">
+                                <i class="fa fa-microphone fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4 call_hangup_offset" ng-hide="callConnected" ng-click="call(actions.callNumber)">
+                        <div class="num">
+                            <div class="txt call_color">
+                                <i class="fa fa-microphone fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                    </div>
+
+                </div>
+            </div>
+    </div>
+</div>
+</div>
